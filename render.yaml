@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dodo-points-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DODO_API_KEY
+        sync: false
+      - key: DODO_WEBHOOK_SECRET
+        sync: false
+      - key: DODO_PRODUCT_ID
+        sync: false
